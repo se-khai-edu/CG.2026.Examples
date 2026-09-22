@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             glView1 = new OpenGL.glView();
+            tick = new System.Windows.Forms.Timer(components);
             SuspendLayout();
             // 
             // glView1
@@ -39,6 +41,12 @@
             glView1.Size = new Size(682, 426);
             glView1.TabIndex = 0;
             glView1.Text = "glView1";
+            glView1.Paint += glView1_Paint;
+            // 
+            // tick
+            // 
+            tick.Enabled = true;
+            tick.Tick += tick_Tick;
             // 
             // MainForm
             // 
@@ -48,12 +56,12 @@
             Controls.Add(glView1);
             Name = "MainForm";
             Text = "Form1";
-            Load += Form1_Load;
             ResumeLayout(false);
         }
 
         #endregion
 
         private OpenGL.glView glView1;
+        private System.Windows.Forms.Timer tick;
     }
 }
