@@ -32,6 +32,7 @@
             mousePos = new ToolStripStatusLabel();
             splitContainer1 = new SplitContainer();
             viewer = new OpenGL.glView();
+            segmentLabel = new ToolStripStatusLabel();
             status.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
@@ -40,7 +41,7 @@
             // 
             // status
             // 
-            status.Items.AddRange(new ToolStripItem[] { mousePos });
+            status.Items.AddRange(new ToolStripItem[] { mousePos, segmentLabel });
             status.Location = new Point(0, 428);
             status.Name = "status";
             status.Size = new Size(800, 22);
@@ -80,6 +81,12 @@
             viewer.MouseMove += viewer_MouseMove;
             viewer.MouseUp += viewer_MouseUp;
             // 
+            // segmentLabel
+            // 
+            segmentLabel.Name = "segmentLabel";
+            segmentLabel.Size = new Size(118, 17);
+            segmentLabel.Text = "toolStripStatusLabel1";
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -104,5 +111,6 @@
         private SplitContainer splitContainer1;
         private OpenGL.glView viewer;
         private ToolStripStatusLabel mousePos;
+        private ToolStripStatusLabel segmentLabel;
     }
 }

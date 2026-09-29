@@ -12,7 +12,7 @@ namespace InputControl
         int W => viewer.ClientSize.Width;
         int H => viewer.ClientSize.Height;
 
-        double left, right, top, bottom;
+        double left = -1, right=3, top=10, bottom=-30, far=-1, near= +1;
 
         private void viewer_Paint(object sender, PaintEventArgs e)
         {
@@ -21,7 +21,7 @@ namespace InputControl
             glClear(GL_COLOR_BUFFER_BIT);
 
             glViewport(0, 0, W, H);
-            glOrtho(0, W, H, 0, -1, 1);
+            glOrtho(left, right, bottom, top, near, far);
 
             glColor3d(1, 1, 1);
             glBegin(GL_LINES);
@@ -30,14 +30,25 @@ namespace InputControl
             glEnd();
         }
 
+        (double X, double Y) MouseToWorld(int screenX, int screenY)
+        {
+            // Implementation for converting mouse coordinates to world coordinates
+            return (
+                left + screenX * (right - left) / W,
+                top + screenY * (bottom - top) / H
+            );
+        }
+
         private void viewer_MouseMove(object sender, MouseEventArgs e)
         {
             mousePos.Text = $"Mouse Position: X={e.X}, Y={e.Y}";
 
             if (isDragging)
             {
-                x2 = e.X;
-                y2 = e.Y;
+                //x2 = e.X;
+                //y2 = e.Y;
+                (x2, y2) = MouseToWorld(e.X, e.Y);
+                segmentLabel.Text = $"Segment: Start=({x1:F2}, {y1:F2}), End=({x2:F2}, {y2:F2})";
                 viewer.Invalidate();
             }
         }
@@ -51,8 +62,9 @@ namespace InputControl
             {
                 isDragging = true;
 
-                x1 = e.X;
-                y1 = e.Y;
+                //x1 = e.X;
+                //y1 = e.Y;
+                (x1, y1) = MouseToWorld(e.X, e.Y);
             }
         }
 
@@ -61,8 +73,9 @@ namespace InputControl
             if (e.Button == MouseButtons.Left && isDragging)
             {
                 isDragging = false;
-                x2 = e.X;
-                y2 = e.Y;
+                //x2 = e.X;
+                //y2 = e.Y;
+                (x2, y2) = MouseToWorld(e.X, e.Y);
 
                 viewer.Invalidate(); // Refresh the viewer to show the line
             }
