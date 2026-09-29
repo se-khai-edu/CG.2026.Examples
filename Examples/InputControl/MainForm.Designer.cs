@@ -30,12 +30,14 @@
         {
             status = new StatusStrip();
             mousePos = new ToolStripStatusLabel();
+            segmentLabel = new ToolStripStatusLabel();
             splitContainer1 = new SplitContainer();
             viewer = new OpenGL.glView();
-            segmentLabel = new ToolStripStatusLabel();
+            propertyScene = new PropertyGrid();
             status.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
+            splitContainer1.Panel2.SuspendLayout();
             splitContainer1.SuspendLayout();
             SuspendLayout();
             // 
@@ -54,6 +56,12 @@
             mousePos.Size = new Size(118, 17);
             mousePos.Text = "toolStripStatusLabel1";
             // 
+            // segmentLabel
+            // 
+            segmentLabel.Name = "segmentLabel";
+            segmentLabel.Size = new Size(118, 17);
+            segmentLabel.Text = "toolStripStatusLabel1";
+            // 
             // splitContainer1
             // 
             splitContainer1.Dock = DockStyle.Fill;
@@ -63,6 +71,10 @@
             // splitContainer1.Panel1
             // 
             splitContainer1.Panel1.Controls.Add(viewer);
+            // 
+            // splitContainer1.Panel2
+            // 
+            splitContainer1.Panel2.Controls.Add(propertyScene);
             splitContainer1.Size = new Size(800, 428);
             splitContainer1.SplitterDistance = 622;
             splitContainer1.TabIndex = 1;
@@ -81,11 +93,14 @@
             viewer.MouseMove += viewer_MouseMove;
             viewer.MouseUp += viewer_MouseUp;
             // 
-            // segmentLabel
+            // propertyScene
             // 
-            segmentLabel.Name = "segmentLabel";
-            segmentLabel.Size = new Size(118, 17);
-            segmentLabel.Text = "toolStripStatusLabel1";
+            propertyScene.BackColor = SystemColors.Control;
+            propertyScene.Dock = DockStyle.Fill;
+            propertyScene.Location = new Point(0, 0);
+            propertyScene.Name = "propertyScene";
+            propertyScene.Size = new Size(174, 428);
+            propertyScene.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -99,6 +114,7 @@
             status.ResumeLayout(false);
             status.PerformLayout();
             splitContainer1.Panel1.ResumeLayout(false);
+            splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
             ResumeLayout(false);
@@ -112,5 +128,6 @@
         private OpenGL.glView viewer;
         private ToolStripStatusLabel mousePos;
         private ToolStripStatusLabel segmentLabel;
+        private PropertyGrid propertyScene;
     }
 }
