@@ -1,3 +1,4 @@
 <Solution>
   <Project Path="Clock/Clock.csproj" />
+  <Project Path="InputControl/InputControl.csproj" Id="39ecf2ea-022e-46ee-91f6-f6ec24bce78d" />
 </Solution>
