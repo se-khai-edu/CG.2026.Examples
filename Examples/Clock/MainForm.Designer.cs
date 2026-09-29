@@ -38,9 +38,10 @@
             glView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             glView1.Location = new Point(12, 12);
             glView1.Name = "glView1";
-            glView1.Size = new Size(682, 426);
+            glView1.Size = new Size(760, 449);
             glView1.TabIndex = 0;
             glView1.Text = "glView1";
+            glView1.RenderContextCreated += glView1_RenderContextCreated;
             glView1.Paint += glView1_Paint;
             // 
             // tick
@@ -52,10 +53,11 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(784, 473);
             Controls.Add(glView1);
+            MinimumSize = new Size(480, 480);
             Name = "MainForm";
-            Text = "Form1";
+            Text = "CLock";
             ResumeLayout(false);
         }
 

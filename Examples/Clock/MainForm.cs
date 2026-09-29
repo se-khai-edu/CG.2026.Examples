@@ -1,4 +1,5 @@
 using static OpenGL.GL;
+using static OpenGL.WGL;
 
 namespace Clock;
 
@@ -38,6 +39,14 @@ public partial class MainForm : Form
         DrawArrow(5, m, 60, 0.9);
         DrawArrow(9, h, 12, 0.7);
 
+        DrawBitmapText($"{time:HH:mm:ss.f}", +0.15, -0.02);
+
+        glColor3b(0, 0, 0);
+        glPointSize(3);
+        glBegin(GL_POINTS);
+          glVertex2d(0, 0);
+        glEnd();
+
     }
 
     private void DrawArrow(int width, double units, int N, double size)
@@ -73,5 +82,11 @@ public partial class MainForm : Form
     private void tick_Tick(object sender, EventArgs e)
     {
         glView1.Invalidate();
+    }
+
+    private void glView1_RenderContextCreated(OpenGL.glView arg1, nint arg2)
+    {
+        var idFont = CreateBitmapFont( new Font("Colibri", 20, FontStyle.Italic));
+        SetBitmapFont(idFont);
     }
 }

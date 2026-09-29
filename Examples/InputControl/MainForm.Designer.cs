@@ -44,9 +44,9 @@
             // status
             // 
             status.Items.AddRange(new ToolStripItem[] { mousePos, segmentLabel });
-            status.Location = new Point(0, 428);
+            status.Location = new Point(0, 451);
             status.Name = "status";
-            status.Size = new Size(800, 22);
+            status.Size = new Size(784, 22);
             status.TabIndex = 0;
             status.Text = "statusStrip1";
             // 
@@ -75,8 +75,8 @@
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.Controls.Add(propertyScene);
-            splitContainer1.Size = new Size(800, 428);
-            splitContainer1.SplitterDistance = 622;
+            splitContainer1.Size = new Size(784, 451);
+            splitContainer1.SplitterDistance = 587;
             splitContainer1.TabIndex = 1;
             // 
             // viewer
@@ -85,7 +85,7 @@
             viewer.Dock = DockStyle.Fill;
             viewer.Location = new Point(0, 0);
             viewer.Name = "viewer";
-            viewer.Size = new Size(622, 428);
+            viewer.Size = new Size(587, 451);
             viewer.TabIndex = 0;
             viewer.Text = "glView1";
             viewer.Paint += viewer_Paint;
@@ -99,14 +99,14 @@
             propertyScene.Dock = DockStyle.Fill;
             propertyScene.Location = new Point(0, 0);
             propertyScene.Name = "propertyScene";
-            propertyScene.Size = new Size(174, 428);
+            propertyScene.Size = new Size(193, 451);
             propertyScene.TabIndex = 0;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(784, 473);
             Controls.Add(splitContainer1);
             Controls.Add(status);
             Name = "MainForm";
