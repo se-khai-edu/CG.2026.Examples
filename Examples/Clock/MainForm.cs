@@ -15,9 +15,14 @@ public partial class MainForm : Form
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         glLoadIdentity();
 
+        double size = 1.1;
         //glViewport(0, 0, Width, Height);
         glViewport(0, 0, glView1.Width, glView1.Height);
-        glOrtho(-1.1, +1.1, -1.1, +1.1, -1, 1);
+        double aspect = (double)glView1.Width / glView1.Height;
+        if (aspect > 1)
+            glOrtho(-size * aspect, +size * aspect, -size, +size, -1, 1);
+        else
+            glOrtho(-size, +size, -size / aspect, +size / aspect, -1, 1);
 
         glColor3d(1, 1, 1);
         DrawClockTable(60, 2);
